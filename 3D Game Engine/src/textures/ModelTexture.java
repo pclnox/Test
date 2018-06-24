@@ -1,10 +1,17 @@
 package textures;
 
 public class ModelTexture {
-	private int textureID;
-	private float shineDamper = 1, reflectivity = 0;
 	
-	public int getTextureID() {
+	private int textureID;
+	
+	private float shineDamper = 1;
+	private float reflectivity = 0;
+	
+	public ModelTexture(int texture){
+		this.textureID = texture;
+	}
+	
+	public int getID(){
 		return textureID;
 	}
 
@@ -23,8 +30,7 @@ public class ModelTexture {
 	public void setReflectivity(float reflectivity) {
 		this.reflectivity = reflectivity;
 	}
+	
+	
 
-	public ModelTexture(int id) {
-		this.textureID = id;
-	}
 }

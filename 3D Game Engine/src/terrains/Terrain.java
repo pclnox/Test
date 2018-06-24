@@ -5,21 +5,46 @@ import renderEngine.Loader;
 import textures.ModelTexture;
 
 public class Terrain {
+	
 	private static final float SIZE = 800;
 	private static final int VERTEX_COUNT = 128;
 	
-	private float x, z;
-	
+	private float x;
+	private float z;
 	private RawModel model;
 	private ModelTexture texture;
 	
-	public Terrain(int gridX, int gridZ, Loader loader, ModelTexture texture) {
+	public Terrain(int gridX, int gridZ, Loader loader, ModelTexture texture){
 		this.texture = texture;
 		this.x = gridX * SIZE;
 		this.z = gridZ * SIZE;
 		this.model = generateTerrain(loader);
 	}
 	
+	
+	
+	public float getX() {
+		return x;
+	}
+
+
+
+	public float getZ() {
+		return z;
+	}
+
+
+
+	public RawModel getModel() {
+		return model;
+	}
+
+
+
+	public ModelTexture getTexture() {
+		return texture;
+	}
+
 	private RawModel generateTerrain(Loader loader){
 		int count = VERTEX_COUNT * VERTEX_COUNT;
 		float[] vertices = new float[count * 3];
@@ -58,19 +83,4 @@ public class Terrain {
 		return loader.loadToVAO(vertices, textureCoords, normals, indices);
 	}
 
-	public float getX() {
-		return x;
-	}
-
-	public float getZ() {
-		return z;
-	}
-
-	public RawModel getModel() {
-		return model;
-	}
-
-	public ModelTexture getTexture() {
-		return texture;
-	}
 }
